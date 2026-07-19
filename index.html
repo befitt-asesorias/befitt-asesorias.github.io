@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- CAMBIA AQUÍ: cambia "dark" por "light" en data-theme para pasar a modo claro con contraste optimizado -->
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -291,6 +291,52 @@
   }
 
   svg{flex-shrink:0;}
+
+  /* ==========================================================================
+     RESPONSIVO — TABLET Y DESKTOP
+     Mobile-first: todo lo de arriba es la base para celular.
+     ========================================================================== */
+
+  /* TABLET (≥700px): el contenedor se ensancha y las tarjetas pasan a grilla */
+  @media (min-width:700px){
+    .wrap{max-width:900px;padding:0 32px 80px;}
+
+    .hero{padding:64px 0 40px;}
+    .avatar{width:140px;height:140px;}
+    .hero .name{font-size:48px;}
+    .hero .tagline{font-size:34px;}
+    .hero .bio{font-size:16px;max-width:520px;}
+
+    .section-title{font-size:34px;}
+
+    .pain-grid,.service-grid,.resource-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+      align-items:start;
+    }
+    .pain-grid .pain-card,
+    .service-grid .service-card,
+    .resource-grid .resource-card{margin-top:0;}
+
+    .cta-final{padding:44px 48px;}
+    .cta-final h3{font-size:30px;}
+    .cta-final .btn-wa{width:auto;padding:15px 34px;}
+  }
+
+  /* DESKTOP (≥1024px): más aire y grillas de 3 columnas donde tiene sentido */
+  @media (min-width:1024px){
+    .wrap{max-width:1080px;padding:0 40px 96px;}
+
+    .hero .tagline{font-size:40px;}
+    .hero .bio{font-size:16.5px;}
+
+    .pain-grid{grid-template-columns:repeat(3,1fr);}
+    .service-grid{grid-template-columns:repeat(2,1fr);gap:20px;}
+    .resource-grid{grid-template-columns:repeat(2,1fr);gap:20px;}
+
+    .service-card,.resource-card{padding:26px;}
+  }
 </style>
 </head>
 <body>
@@ -321,20 +367,22 @@
     <div class="section-label">¿Te suena familiar?</div>
     <div class="section-title">EL PROBLEMA NO ES TU DISCIPLINA</div>
 
-    <div class="pain-card">
-      <p><b>Sales de la oficina a las 6 PM frito</b> después de 10 horas de trabajo
-        y una rutina genérica en PDF no te sirve — necesitas un proceso tan bien
-        diseñado como los que gestionas en tu pega.</p>
-    </div>
-    <div class="pain-card">
-      <p><b>Juegas fútbol 2-3 veces por semana</b> y el gimnasio te está pasando
-        la cuenta: llegas a la cancha con las piernas destruidas por entrenar sin
-        sincronía con tu calendario deportivo.</p>
-    </div>
-    <div class="pain-card">
-      <p><b>Los imprevistos te sacan del sistema:</b> un cierre de mes, una reunión
-        de última hora, un partido que cambia de día — y tu plan colapsa porque
-        nadie lo reajusta contigo.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <p><b>Sales de la oficina a las 6 PM frito</b> después de 10 horas de trabajo
+          y una rutina genérica en PDF no te sirve — necesitas un proceso tan bien
+          diseñado como los que gestionas en tu pega.</p>
+      </div>
+      <div class="pain-card">
+        <p><b>Juegas fútbol 2-3 veces por semana</b> y el gimnasio te está pasando
+          la cuenta: llegas a la cancha con las piernas destruidas por entrenar sin
+          sincronía con tu calendario deportivo.</p>
+      </div>
+      <div class="pain-card">
+        <p><b>Los imprevistos te sacan del sistema:</b> un cierre de mes, una reunión
+          de última hora, un partido que cambia de día — y tu plan colapsa porque
+          nadie lo reajusta contigo.</p>
+      </div>
     </div>
   </section>
 
@@ -343,31 +391,33 @@
     <div class="section-label">La metodología</div>
     <div class="section-title">INGENIERÍA APLICADA A TU ENTRENAMIENTO</div>
 
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <h3>INGENIERÍA LOGÍSTICA HÍBRIDA</h3>
-      <p>Mapeamos tu agenda laboral y deportiva en una reunión inicial. Si tienes
-        partido el jueves, tu carga se reordena el lunes para que el gimnasio
-        potencie tu rendimiento en la cancha — no que lo frene.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <h3>DASHBOARD OPERATIVO</h3>
-      <p>Cero apps confusas. Un Google Sheets con series, descansos, progresiones
-        numéricas y calendario dinámico semanal — datos puros, control total.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <h3>CONTROL DE CALIDAD BIOMECÁNICO</h3>
-      <p>Envías video de tu ejecución, yo analizo los ángulos por WhatsApp. Rendimiento
-        máximo con el menor riesgo de lesión.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">04</div>
-      <h3>SOPORTE ANTI-IMPREVISTOS 24/7</h3>
-      <p>Reunión de última hora o partido cancelado: me avisas por WhatsApp y ajusto
-        tu semana en tiempo real. Un proceso eficiente no se detiene ante imprevistos,
-        se recalibra.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>INGENIERÍA LOGÍSTICA HÍBRIDA</h3>
+        <p>Mapeamos tu agenda laboral y deportiva en una reunión inicial. Si tienes
+          partido el jueves, tu carga se reordena el lunes para que el gimnasio
+          potencie tu rendimiento en la cancha — no que lo frene.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>DASHBOARD OPERATIVO</h3>
+        <p>Cero apps confusas. Un Google Sheets con series, descansos, progresiones
+          numéricas y calendario dinámico semanal — datos puros, control total.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>CONTROL DE CALIDAD BIOMECÁNICO</h3>
+        <p>Envías video de tu ejecución, yo analizo los ángulos por WhatsApp. Rendimiento
+          máximo con el menor riesgo de lesión.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>SOPORTE ANTI-IMPREVISTOS 24/7</h3>
+        <p>Reunión de última hora o partido cancelado: me avisas por WhatsApp y ajusto
+          tu semana en tiempo real. Un proceso eficiente no se detiene ante imprevistos,
+          se recalibra.</p>
+      </div>
     </div>
   </section>
 
@@ -376,22 +426,24 @@
     <div class="section-label">Recursos gratuitos</div>
     <div class="section-title">GUÍAS INTERACTIVAS</div>
 
-    <a class="resource-card" href="https://befitt-asesorias.github.io/leadmagnets/espalda-ejercicios/" target="_blank" rel="noopener">
-      <span class="resource-tag">Guía · Espalda</span>
-      <h3>LA RUTINA QUE ME AYUDÓ A CRECER LA ESPALDA</h3>
-      <p>El plan anatómico y biomecánico para construir una espalda ancha, densa y en V. Checklist interactivo con los 4 pilares.</p>
-      <div class="resource-cta">
-        Ver guía
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </div>
-    </a>
+    <div class="resource-grid">
+      <a class="resource-card" href="https://befitt-asesorias.github.io/leadmagnets/espalda-ejercicios/" target="_blank" rel="noopener">
+        <span class="resource-tag">Guía · Espalda</span>
+        <h3>LA RUTINA QUE ME AYUDÓ A CRECER LA ESPALDA</h3>
+        <p>El plan anatómico y biomecánico para construir una espalda ancha, densa y en V. Checklist interactivo con los 4 pilares.</p>
+        <div class="resource-cta">
+          Ver guía
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </div>
+      </a>
 
-    <!-- EDITAR AQUÍ: cuando tengas más lead magnets, duplica el bloque de arriba
-         y quita la clase "soon" del bloque de abajo -->
-    <div class="resource-card soon">
-      <span class="resource-tag">Próximamente</span>
-      <h3>NUEVA GUÍA EN CAMINO</h3>
-      <p>Estamos preparando el próximo recurso interactivo.</p>
+      <!-- EDITAR AQUÍ: cuando tengas más lead magnets, duplica el bloque de arriba
+           y quita la clase "soon" del bloque de abajo -->
+      <div class="resource-card soon">
+        <span class="resource-tag">Próximamente</span>
+        <h3>NUEVA GUÍA EN CAMINO</h3>
+        <p>Estamos preparando el próximo recurso interactivo.</p>
+      </div>
     </div>
   </section>
 
@@ -403,8 +455,10 @@
     <!-- EDITAR AQUÍ: reemplaza este bloque por tarjetas .testi-card con
          testimonios reales, formato:
          <div class="testi-card"><p>"Texto del testimonio"</p></div> -->
-    <div class="testi-empty">
-      Testimonios en camino — pronto encontrarás aquí resultados reales del Team BEFITT.
+    <div class="testi-grid">
+      <div class="testi-empty">
+        Testimonios en camino — pronto encontrarás aquí resultados reales del Team BEFITT.
+      </div>
     </div>
   </section>
 
